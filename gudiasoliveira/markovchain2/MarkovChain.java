@@ -23,7 +23,19 @@ public class MarkovChain<T> {
 		return mTransitionMatrix[i][j];
 	}
 	
+	public double get(T fromState, T toState) {
+		int i = mStates.indexOf(fromState);
+		int j = mStates.indexOf(toState);
+		return mTransitionMatrix[i][j];
+	}
+	
 	public void set(int i, int j, double p) {
+		mTransitionMatrix[i][j] = p;
+	}
+	
+	public void set(T fromState, T toState, double p) {
+		int i = mStates.indexOf(fromState);
+		int j = mStates.indexOf(toState);
 		mTransitionMatrix[i][j] = p;
 	}
 	
